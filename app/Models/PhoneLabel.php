@@ -12,7 +12,7 @@ class PhoneLabel extends Model
     /** @use HasFactory<\Database\Factories\PhoneLabelsFactory> */
     use HasFactory;
 
-    public function phone()
+    public function phones()
     {
         return $this->hasMany(Phone::class, 'label_id');
     }
