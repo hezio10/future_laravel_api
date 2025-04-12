@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Address;
+use App\Models\Phone;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -20,5 +21,10 @@ class Contact extends Model
     public function company()
     {
         return $this->belongsTo(Company::class);
+    }
+
+    public function phones()
+    {
+        return $this->HasMany(Phone::class);
     }
 } 
