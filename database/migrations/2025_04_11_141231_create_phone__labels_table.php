@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('phone__labels', function (Blueprint $table) {
+        Schema::create('phone_labels', function (Blueprint $table) {
             $table->id();
             $table->string("name");
             $table->datetimes();

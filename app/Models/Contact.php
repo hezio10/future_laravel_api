@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Address;
 use App\Models\Phone;
 use App\Models\Email;
+use App\Models\Tag;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -32,5 +33,10 @@ class Contact extends Model
     public function emails()
     {
         return $this->HasMany(Email::class);
+    }
+
+    public function tags() 
+    {
+        return $this->HasMany(Tag::class    );
     }
 } 

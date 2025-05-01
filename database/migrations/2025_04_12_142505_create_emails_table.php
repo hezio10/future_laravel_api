@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string("email");
             $table->foreignIdFor(Contact::class, "contact_id")->constrained();
             $table->foreignIdFor(EmailLabel::class, "label_id")->constrained();
-            $table->datatimes();
+            $table->datetimes();
             $table->charset("utf8mb4");
             $table->collation("utf8mb4_0900_ai_ci");
         });
