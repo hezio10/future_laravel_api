@@ -17,7 +17,8 @@ class AddressFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'street'=>fake()->streetAddress(),
+            'neighborhood'=>fake()->words(1, true),
         ];
     }
 }

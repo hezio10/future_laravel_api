@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Contact;
+use App\Models\EmailLabel;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,9 @@ class EmailFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'email' => fake()->unique()->safeEmail(),
+            'contact_id' => Contact::factory(),
+            'label_id' => EmailLabel::factory(),
         ];
     }
 }

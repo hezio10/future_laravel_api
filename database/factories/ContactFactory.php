@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Address;
+use App\Models\Company;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,12 @@ class ContactFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->name(),
+            'notes' => fake()->paragraph(3, true),
+            'birthdate' => fake()->date(),
+            'image' => fake()->imageUrl(),
+            'address_id' => Address::factory(),
+            'company_id' => Company::factory(),
         ];
     }
 }
