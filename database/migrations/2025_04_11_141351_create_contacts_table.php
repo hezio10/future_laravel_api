@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 use App\Models\Address;
 use App\Models\Company;
-use App\Models\Email;
 use App\Models\Tag;
 use App\Models\Contact;
 
