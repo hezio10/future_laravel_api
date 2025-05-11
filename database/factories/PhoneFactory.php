@@ -22,8 +22,8 @@ class PhoneFactory extends Factory
             'phone' => fake()->phoneNumber(),
             'prefix' => fake()->randomElement(['+1', '+44', '+55', '+258']),
             'flag_link' => fake()->imageUrl(32, 24, 'flags'),
-            'contact_id' => Contact::factory(),
-            'label_id' => PhoneLabel::factory(),
+            'contact_id' => fake()->numberBetween(1,5),
+            'label_id' => fake()->numberBetween(1, 5),
         ];        
     }
 }
