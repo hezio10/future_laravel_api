@@ -20,8 +20,8 @@ class EmailFactory extends Factory
     {
         return [
             'email' => fake()->unique()->safeEmail(),
-            'contact_id' => Contact::factory(),
-            'label_id' => EmailLabel::factory(),
+            'contact_id' => fake()->numberBetween(1,5),
+            'label_id' => fake()->numberBetween(1,5),
         ];
     }
 }
