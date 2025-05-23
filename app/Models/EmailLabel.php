@@ -8,9 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * Representa uma etiqueta usada para classificar e-mails.
- *
- * Exemplo: trabalho, familia, amigo, outro.
+ * Representa uma etiqueta usada para classificar e-mails(Ex: trabalho, familia, amigo, outro.).
+ * 
  * @property int $id identificador unico.
  * @property string $name Nome da etiqueta (ex: pessoal, trabalho).
  *
