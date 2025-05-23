@@ -26,7 +26,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property Company|null $company empresa na qual um contacto trabalha.
  * @property Collection|Phone[] $phones lista dos numeros de telefone de um contacto(ex: +258 85..., +21 58...).
  * @property Collection|Email[] $emails lista de e-mails de um contato.
- * @property Collection|Tag[] $tags lista de etiquetas usadas para classificar um contato(ex: amigo, família, colega).
+ * @property Collection|Tag[] $tags lista de etiquetas para classificar um contato(ex: amigo, família, colega).
  * @property Carbon|null $created_at data de criação do registro.
  * @property Carbon|null $updated_at data de atualização do registro.
  */
