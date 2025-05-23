@@ -10,14 +10,14 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
- * Representa um endereço associado a um contato.
+ * representa um endereço associado a um contato.
  *
  * @package App\Models
  *
- * @property int $id identificador único do endereço.
+ * @property int $id identificador único.
  * @property string $street nome da rua ou avenida.
  * @property string $neighborhood nome do bairro.
- * @property Contact $contact Contato associado ao endereço.
+ * @property Contact $contact contato associado ao endereço.
  * @property Carbon|null $created_at data de criação do registro.
  * @property Carbon|null $updated_at data de atualização do registro.
  */
