@@ -16,6 +16,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $email endereço de e-mail(ex: exemplo@email.com, test@email.com).
  * @property Contact $contact contato no qual um email pertence.
  * @property EmailLabel $label etiqueta para classificar o tipo do e-mail(ex: pessoal, trabalho).
+ * @property Carbon $created_at data de criação do registro.
+ * @property Carbon $updated_at data de atualização do registro.
  */
 class Email extends Model
 {

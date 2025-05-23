@@ -13,8 +13,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * 
  * @property int $id identificador unico.
  * @property string $name Nome da etiqueta (ex: pessoal, trabalho).
- *
  * @property Collection|Email[] $phones Lista de telefones com essa etiqueta.
+ * @property Carbon $created_at data de criação do registro.
+ * @property Carbon $updated_at data de atualização do registro.
  */
 class PhoneLabel extends Model
 {

@@ -14,9 +14,9 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property int $id identificador unico.
  * @property string $name nome da empresa.
  * @property string $role cargo do colaborador na empresa.
- * @property Contact|null $contact contato associado a empresa.
- * @property Carbon|null $created_at data de criação do registro.
- * @property Carbon|null $updated_at data de atualização do registro.
+ * @property Contact $contact contato associado a empresa.
+ * @property Carbon $created_at data de criação do registro.
+ * @property Carbon $updated_at data de atualização do registro.
  */
 class Company extends Model
 {

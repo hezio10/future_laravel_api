@@ -19,16 +19,16 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  *
  * @property int $id identificador unico do contato.
  * @property string $name nome.
- * @property string|null $notes algumas anotações ou comentarios.
- * @property string|null $birthdate data de nascimento.
- * @property string|null $image url da imagem(foto ou avatar).
- * @property Address|null $address endereço relacionado a um contacto.
- * @property Company|null $company empresa na qual um contacto trabalha.
+ * @property string $notes algumas anotações ou comentarios.
+ * @property string $birthdate data de nascimento.
+ * @property string $image url da imagem(foto ou avatar).
+ * @property Address $address endereço relacionado a um contacto.
+ * @property Company $company empresa na qual um contacto trabalha.
  * @property Collection|Phone[] $phones lista dos numeros de telefone de um contacto(ex: +258 85..., +21 58...).
  * @property Collection|Email[] $emails lista de e-mails de um contato.
  * @property Collection|Tag[] $tags lista de etiquetas para classificar um contato(ex: amigo, família, colega).
- * @property Carbon|null $created_at data de criação do registro.
- * @property Carbon|null $updated_at data de atualização do registro.
+ * @property Carbon $created_at data de criação do registro.
+ * @property Carbon $updated_at data de atualização do registro.
  */
 class Contact extends Model
 {

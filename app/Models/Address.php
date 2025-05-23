@@ -16,8 +16,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property string $street nome da rua ou avenida.
  * @property string $neighborhood nome do bairro.
  * @property Contact $contact contato associado ao endereço.
- * @property Carbon|null $created_at data de criação do registro.
- * @property Carbon|null $updated_at data de atualização do registro.
+ * @property Carbon $created_at data de criação do registro.
+ * @property Carbon $updated_at data de atualização do registro.
  */
 class Address extends Model
 {
