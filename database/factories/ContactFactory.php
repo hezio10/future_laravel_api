@@ -23,6 +23,7 @@ class ContactFactory extends Factory
             'notes' => fake()->paragraph(3, true),
             'birthdate' => fake()->date(),
             'image' => fake()->imageUrl(),
+            'role' => fake()->words(1, true),
             'address_id' => Address::factory(),
             'company_id' => Company::factory(),
         ];

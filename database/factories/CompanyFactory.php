@@ -18,7 +18,6 @@ class CompanyFactory extends Factory
     {
         return [
            'name' => fake()->company(),
-           'role' => fake()->words(1, true),
         ];
     }
 }
