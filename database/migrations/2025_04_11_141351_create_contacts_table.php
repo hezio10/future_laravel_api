@@ -23,6 +23,7 @@ return new class extends Migration
             $table->text("notes");
             $table->date("birthdate");
             $table->string("image");
+            $table->string("role");
             $table->foreignIdFor(Address::class, "address_id")->constrained();
             $table->foreignIdFor(Company::class, "company_id")->constrained();
             $table->datetimes();
