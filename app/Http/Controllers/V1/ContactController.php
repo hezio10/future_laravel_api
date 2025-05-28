@@ -12,9 +12,14 @@ class ContactController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return new ListContactsResource(Contact::paginate());
+        $perPage = $request->validate([
+            'per_page' => 'integer|min:1',
+        ])['per_page'] ?? 15;
+
+
+        return new ListContactsResource(Contact::paginate($perPage));
     }
 
     /**
