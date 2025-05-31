@@ -23,6 +23,10 @@ class Address extends Model
 {
     /** @use HasFactory<\Database\Factories\AddressFactory> */
     use HasFactory;
+    protected $fillable = [
+        'street',
+        'neighborhood',
+    ];
 
     public function contact(): HasOne
     {
