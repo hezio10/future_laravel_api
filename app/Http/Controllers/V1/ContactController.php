@@ -14,10 +14,12 @@ class ContactController extends Controller
      */
     public function index(Request $request)
     {
-        $perPage = $request->validate([
-            'per_page' => 'integer|min:1',
-        ])['per_page'] ?? 15;
+        $validatedPayload = $request->validateWithBag('errors', [
+            'per_page' => ['integer', 'min:1'],
+            'page' => ['integer', 'min:1'],
+        ]);
 
+        $perPage = $validatedPayload['per_page'] ?? 15;
 
         return new ListContactsResource(Contact::paginate($perPage));
     }
