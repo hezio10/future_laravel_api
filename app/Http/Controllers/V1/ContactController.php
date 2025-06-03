@@ -4,6 +4,9 @@ namespace App\Http\Controllers\V1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\V1\ListContactsResource;
+use App\Http\Resources\V1\ShowContactResource;
+use App\Models\Address;
+use App\Models\Company;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 
@@ -29,7 +32,21 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $contact = $request->all();
+        $address = $contact['address'];
+        $addressId = Address::create($address)['id'];
+        $contact['address_id'] = $addressId;
+
+        $company = $contact['company'];
+        $companyId = Company::create($company)['id'];
+        $contact['company_id'] = $companyId;
+        
+        return [
+            'status' => 'Ok',
+            'message' => 'Contact created successfullly',
+            'data' => new ShowContactResource(Contact::create($contact))
+        ];
     }
 
     /**
@@ -37,23 +54,31 @@ class ContactController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $contact = Contact::find($id);
+
+        return [
+            'status' => 'Ok',
+            'message' => 'Contact read successfully',
+            'data' => new ShowContactResource($contact),
+        ];
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        //
+    
+        $contact = Contact::find($id);
+        $contactData = $request->all();
+        $contact->update($contactData);
+
+        return [
+            'status' => 'Ok',
+            'message' => 'Contact updated successfully',
+            'data' => new ShowContactResource($contact),
+        ];
     }
 
     /**
