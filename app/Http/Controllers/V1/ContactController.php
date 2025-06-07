@@ -8,6 +8,7 @@ use App\Http\Resources\V1\ShowContactResource;
 use App\Models\Address;
 use App\Models\Company;
 use App\Models\Contact;
+use App\Models\ContactStatus;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -86,6 +87,14 @@ class ContactController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $contact = Contact::find($id);
+        $contact->status = ContactStatus::Deleted->value;
+        $contact->save();
+       
+        return [
+            'status' => 'Ok',
+            'message' => 'Contact deleted successfully',
+            'data' => new ShowContactResource($contact),
+        ];
     }
 }
