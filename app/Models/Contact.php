@@ -40,6 +40,7 @@ class Contact extends Model
         'birthdate',
         'image',
         'role',
+        'status',
         'address_id',
         'company_id',
     ];
