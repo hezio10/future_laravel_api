@@ -9,5 +9,6 @@ Route::prefix('v1')->group(function () {
         Route::post('', [ ContactController::class, 'store']);
         Route::get('/{id}', [ ContactController::class, 'show']);
         Route::put('/{id}', [ ContactController::class, 'update']);
+        Route::delete('/{id}', [ ContactController::class, 'destroy']);
     });
 });
