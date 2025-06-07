@@ -20,6 +20,7 @@ class ShowContactResource extends JsonResource
 			"notes" =>  $this->notes,
 			"birthdate" => $this->birthdate,
 			"image"=> $this->image,
+			"status"=> $this->status,
 			"address" =>  $this->address,
 			"company" => $this->company,
 			"created_at" => $this->created_at,
