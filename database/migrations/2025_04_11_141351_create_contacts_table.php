@@ -8,7 +8,7 @@ use App\Models\Address;
 use App\Models\Company;
 use App\Models\Tag;
 use App\Models\Contact;
-
+use App\Models\ContactStatus;
 
 return new class extends Migration
 {
@@ -24,6 +24,7 @@ return new class extends Migration
             $table->date("birthdate");
             $table->string("image");
             $table->string("role");
+            $table->enum("status", array_column(ContactStatus::cases(), 'value'))->default(ContactStatus::Active);
             $table->foreignIdFor(Address::class, "address_id")->constrained();
             $table->foreignIdFor(Company::class, "company_id")->constrained();
             $table->datetimes();
