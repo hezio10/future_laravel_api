@@ -9,6 +9,8 @@ use App\Models\Address;
 use App\Models\Company;
 use App\Models\Contact;
 use App\Models\ContactStatus;
+use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -42,6 +44,14 @@ class ContactController extends Controller
         $company = $contact['company'];
         $companyId = Company::create($company)['id'];
         $contact['company_id'] = $companyId;
+
+        $userId = $contact['user_id'];
+        if(User::find($userId) === null) {
+            return response([
+                'status' => 'Error ',
+                'message' => 'Utilizador nao encotrado',
+            ], 404);
+        }
         
         return [
             'status' => 'Ok',

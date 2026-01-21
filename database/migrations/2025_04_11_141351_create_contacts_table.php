@@ -9,6 +9,7 @@ use App\Models\Company;
 use App\Models\Tag;
 use App\Models\Contact;
 use App\Models\ContactStatus;
+use App\Models\User;
 
 return new class extends Migration
 {
@@ -27,6 +28,7 @@ return new class extends Migration
             $table->enum("status", array_column(ContactStatus::cases(), 'value'))->default(ContactStatus::Active);
             $table->foreignIdFor(Address::class, "address_id")->constrained();
             $table->foreignIdFor(Company::class, "company_id")->constrained();
+            $table->foreignIdFor(User::class, "user_id")->constrained();
             $table->datetimes();
             $table->charset('utf8mb4');
             $table->collation('utf8mb4_0900_ai_ci');

@@ -26,6 +26,7 @@ class ContactFactory extends Factory
             'role' => fake()->words(1, true),
             'address_id' => Address::factory(),
             'company_id' => Company::factory(),
+            'user_id' => fake()->numberBetween(1,4),
         ];
     }
 }
