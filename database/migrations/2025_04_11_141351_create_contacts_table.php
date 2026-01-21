@@ -21,14 +21,14 @@ return new class extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->text("notes");
+            $table->text("notes")->nullable();
             $table->date("birthdate");
-            $table->string("image");
-            $table->string("role");
+            $table->string("image")->nullable();
+            $table->string("role")->nullable();
             $table->enum("status", array_column(ContactStatus::cases(), 'value'))->default(ContactStatus::Active);
             $table->foreignIdFor(Address::class, "address_id")->constrained();
-            $table->foreignIdFor(Company::class, "company_id")->constrained();
-            $table->foreignIdFor(User::class, "user_id")->constrained();
+            $table->foreignIdFor(Company::class, "company_id")->nullable()->constrained();
+            $table->foreignIdFor(User::class, "user_id") ->constrained();
             $table->datetimes();
             $table->charset('utf8mb4');
             $table->collation('utf8mb4_0900_ai_ci');
