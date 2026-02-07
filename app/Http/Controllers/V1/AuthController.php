@@ -23,7 +23,16 @@ class AuthController extends Controller
             return response()->json(['error' => 'could_not_create_token'], 500);
         }
 
-        return response()->json(compact('token'));
+        $user = User::where('email', $credentials['email']);
+
+        return response()->json([
+            'status' => 'Ok',
+            'message' => 'Successfully logged in',
+            'data' => [
+                'accessToken' => $token,
+                'user' => $user
+            ],
+        ]);
     }
 
     public function logout()
