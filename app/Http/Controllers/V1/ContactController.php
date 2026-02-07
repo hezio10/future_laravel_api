@@ -35,7 +35,6 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
         $contact = $request->all();
         $address = $contact['address'];
         $addressId = Address::create($address)['id'];

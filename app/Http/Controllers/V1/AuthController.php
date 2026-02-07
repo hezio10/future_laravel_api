@@ -4,8 +4,8 @@ namespace App\Http\Controllers\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
@@ -40,13 +40,31 @@ class AuthController extends Controller
 
     public function signUp(Request $request) 
     {
-        // $request->validate([
-        //     // 'username' => ['required'],
-        //     'email' => ['required'],
-        //     'password' => ['required'],
-        // ]);
+        $userData = $request->validate([
+            'first_name' => ['required'],
+            'last_name' => ['required'],
+            'email' => ['required'],
+            'password' => ['required'],
+        ]);
 
-        $user = User::create($request->all());
+        $role = Role::where("name", "admin")->get()[0];
+        // return $role;
+        if ($role === null) {
+            return response([
+                'status' => 'Error ',
+                'message' => 'Role nao encontrado',
+            ], 404);
+        }
+
+        $userData['role_id'] = $role->id;
+
+        $createdUser = User::create($userData);
+
+        return [
+            'status' => 'Ok',
+            'message' => 'User created successfullly!',
+            'data' => $createdUser
+        ];
     }
 }
 

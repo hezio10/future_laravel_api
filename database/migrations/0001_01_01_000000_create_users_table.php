@@ -19,12 +19,8 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->timestamps();
-        });
-
-         Schema::create('user_roles', function (Blueprint $table) {
-            $table->foreignIdFor(User::class, "user_id");
             $table->foreignIdFor(Role::class, "role_id");
+            $table->timestamps();
         });
     }
 
