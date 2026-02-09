@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\ShowUserResource;
 use App\Models\User;
 use App\Models\Role;
 use Illuminate\Http\Request;
@@ -23,14 +24,14 @@ class AuthController extends Controller
             return response()->json(['error' => 'could_not_create_token'], 500);
         }
 
-        $user = User::where('email', $credentials['email']);
+        $user = User::where('email', $credentials['email'])->first();
 
         return response()->json([
             'status' => 'Ok',
             'message' => 'Successfully logged in',
             'data' => [
                 'accessToken' => $token,
-                'user' => $user
+                'user' => ShowUserResource::make($user),
             ],
         ]);
     }
@@ -71,7 +72,7 @@ class AuthController extends Controller
         return [
             'status' => 'Ok',
             'message' => 'User created successfullly!',
-            'data' => $createdUser
+            'data' => ShowUserResource::make($createdUser),
         ];
     }
 }
