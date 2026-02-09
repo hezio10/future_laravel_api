@@ -10,7 +10,6 @@ use App\Models\Company;
 use App\Models\Contact;
 use App\Models\ContactStatus;
 use App\Models\User;
-use Exception;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -72,7 +71,6 @@ class ContactController extends Controller
             'data' => new ShowContactResource($contact),
         ];
     }
-
 
     /**
      * Update the specified resource in storage.
