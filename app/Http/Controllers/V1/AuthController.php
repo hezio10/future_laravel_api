@@ -11,7 +11,7 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 
 class AuthController extends Controller
 {
-    public function login(Request $request)
+    public function signIn(Request $request)
     {
         $credentials = $request->only('email', 'password');
 
@@ -35,7 +35,7 @@ class AuthController extends Controller
         ]);
     }
 
-    public function logout()
+    public function signOut()
     {
         JWTAuth::invalidate(JWTAuth::getToken());
         return response()->json(['message' => 'Successfully logged out']);
@@ -57,7 +57,6 @@ class AuthController extends Controller
         ]);
 
         $role = Role::where("name", "admin")->get()[0];
-        // return $role;
         if ($role === null) {
             return response([
                 'status' => 'Error ',
