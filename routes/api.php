@@ -10,7 +10,7 @@ Route::prefix('v1')->group(function () {
         Route::post('/sign-up', [AuthController::class, 'signUp']);
         Route::post('/sign-in', [AuthController::class, 'signIn']);
         Route::post('/sign-out', [AuthController::class, 'signOut'])->middleware(AuthMiddleware::class);
-        Route::post('/refresh-token', [AuthController::class, 'refreshToken']);
+        Route::post('/refresh-token', [AuthController::class, 'refreshToken'])->middleware(AuthMiddleware::class);
     });
 
     Route::prefix('contacts')->group(function () {
