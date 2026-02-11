@@ -45,7 +45,19 @@ class AuthController extends Controller
     public function refreshToken()
     {
         $token = JWTAuth::refresh(JWTAuth::getToken());
-        return response()->json(compact('token'));
+        // $userId = JWTAuth::user()->id;
+        $userId = 1;
+        
+        $user = User::find($userId);
+
+        return response()->json([
+            'status' => 'Ok',
+            'message' => 'token refreshed',
+            'data' => [
+                'accessToken' => $token,
+                'user' => ShowUserResource::make($user),
+            ],
+        ]);
     }
 
     public function signUp(Request $request) 
