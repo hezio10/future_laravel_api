@@ -7,6 +7,7 @@ use App\Http\Resources\V1\ShowUserResource;
 use App\Models\User;
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
@@ -45,10 +46,8 @@ class AuthController extends Controller
     public function refreshToken()
     {
         $token = JWTAuth::refresh(JWTAuth::getToken());
-        // $userId = JWTAuth::user()->id;
-        $userId = 1;
         
-        $user = User::find($userId);
+        $user = Auth::user();
 
         return response()->json([
             'status' => 'Ok',
